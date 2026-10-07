@@ -1,0 +1,29 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+>
+	<SelectDialog
+		contentHeight="50%"
+		contentWidth="40%"
+		noDataText="No Entries Found"
+		title="Select AssetSubclass"
+		search=".onSearchSubClass"
+		confirm=".onAssetSubclassDialogClose"
+		cancel=".onAssetSubclassDialogClose"
+		items="{
+			path: '/SubclassHelpSet',
+			parameters: {
+				operationMode: 'Client'
+			}
+		}"
+	>
+		<StandardListItem
+			title="{SubClass}"
+			description="{SubClassDesc}"
+			info="{AssetClass}"
+			iconDensityAware="false"
+			iconInset="false"
+			type="Active"
+		/>
+	</SelectDialog>
+</core:FragmentDefinition>

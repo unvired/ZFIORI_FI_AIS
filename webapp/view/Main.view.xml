@@ -1,0 +1,309 @@
+<mvc:View
+	controllerName="com.wel.assetstandardcost.controller.Main"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:ui="sap.ui.table"
+	height="100%"
+	xmlns:core="sap.ui.core"
+>
+	<Page
+		id="page"
+		title="{i18n>title}"
+	>
+		<headerContent>
+		</headerContent>
+		<content>
+			<ui:Table
+				id="id_awl_cost_table"
+				class="sapUiDesktopMarginBegin sapUiDesktopMarginEnd"
+				enableBusyIndicator="true"
+				enableColumnReordering="false"
+				rows="{
+					path: 'oJsonAISSetModel>/results'
+				}"
+				visibleRowCountMode="Auto"
+				alternateRowColors="true"
+			>
+				<ui:extension>
+					<OverflowToolbar height="3rem">
+						<ToolbarSpacer/>
+						<!-- <Title
+							id="title"
+							text=""
+							class="sapUiSmallMarginBegin"
+						/> -->
+						<Button
+							icon="sap-icon://add"
+							tooltip="{i18n>MainView.CreateNewRow}"
+							text="Create"
+							press="onCreateNewAWLCost"
+						/>
+						<ToolbarSeparator/>
+						<!-- <Switch
+							id="id_edit_toggle"
+							state="{parentModel>/isFieldEditable}"
+							change="onSwitchStateChange"
+							customTextOn="{i18n>MainView.Inediton}"
+							customTextOff="{i18n>MainView.Ineditoff}"
+						>
+							<layoutData>
+								<FlexItemData growFactor="1"/>
+							</layoutData>
+						</Switch> -->
+						<ToggleButton
+							icon="sap-icon://edit"
+							pressed="{parentModel>/isFieldEditable}"
+							press="onToggleButtonPress"
+							visible="{oVisibleModel>/isVisible}"
+							text="{i18n>MainView.IntoggleButtonText}"
+						/>
+						<ToolbarSeparator/>
+						<Button
+							type="Reject"
+							icon="sap-icon://delete"
+							tooltip="{i18n>MainView.DeleteRow}"
+							press="onDeleteRowButtonPress"
+						/>
+						<ToolbarSeparator/>
+						<SearchField
+							id="id_searchfield"
+							placeholder="{i18n>MainView.Search}"
+							value="{ui>/globalFilter}"
+							liveChange="onTableSearch"
+							class="sapUiSmallMarginEnd"
+							width="25rem"
+						/>
+					</OverflowToolbar>
+				</ui:extension>
+				<ui:columns>
+					<ui:Column
+						resizable="false"
+						width="10rem"
+					>
+						<Text text="{i18n>MainView.InSubClass}"/>
+						<ui:template>
+							<Input
+								value="{oJsonAISSetModel>SubClass}"
+								editable="false"
+							>
+								<customData>
+									<core:CustomData
+										key="style-class"
+										value="primary-color"
+										writeToDom="true"
+									/>
+								</customData>
+							</Input>
+						</ui:template>
+						<ui:customData>
+							<core:CustomData
+								key="style-class"
+								value="primary-color"
+								writeToDom="true"
+							/>
+						</ui:customData>
+					</ui:Column>
+					<ui:Column
+						resizable="false"
+						width="26rem"
+					>
+						<Text text="{i18n>MainView.InSubClassDesc}"/>
+						<ui:template>
+							<Input
+								id="id_objetType_valuehelp"
+								value="{oJsonAISSetModel>SubClassDesc}"
+								editable="{parentModel>/isFieldEditable}"
+								liveChange="onTextChange"
+								
+							/>
+						</ui:template>
+					</ui:Column>
+					<ui:Column
+						resizable="false"
+						width="8rem"
+					>
+						<Text text="{i18n>MainView.InAssetClass}"/>
+						<ui:template>
+							<Input
+								value="{oJsonAISSetModel>AssetClass}"
+								editable="false"
+							/>
+						</ui:template>
+					</ui:Column>
+					<ui:Column
+						resizable="false"
+						width="7rem"
+						hAlign="Center"
+					>
+						<Text text="{i18n>MainView.InSubclassCat}"/>
+						<ui:template>
+							<Input
+								id="id_subclasscat"
+								value="{oJsonAISSetModel>SubclassCat}"
+								editable="{parentModel>/isFieldEditable}"
+								
+							/>
+						</ui:template>
+					</ui:Column>
+					<ui:Column
+						resizable="false"
+						width="9rem"
+					>
+						<Text text="{i18n>MainView.InStdCost}"/>
+						<ui:template>
+							<Input
+								id="id_stdCost"
+								value="{oJsonAISSetModel>StdCost}"
+								editable="{parentModel>/isFieldEditable}"
+								liveChange="onInputValueChange"
+								textAlign="Right"
+							/>
+						</ui:template>
+					</ui:Column>
+					<ui:Column
+						resizable="false"
+						width="8rem"
+					>
+						<Text text="{i18n>MainView.InStdLife}"/>
+						<ui:template>
+							<Input
+								id="id_stdlife"
+								value="{oJsonAISSetModel>StdLife}"
+								editable="{parentModel>/isFieldEditable}"
+								liveChange="onInputValueChange"
+								textAlign="Right"
+							/>
+						</ui:template>
+					</ui:Column>
+					<ui:Column
+						resizable="false"
+						width="7rem"
+						hAlign="Center"
+					>
+						<Text text="{i18n>MainView.Z11kv}"/>
+						<ui:template>
+							<Input
+								id="id_z11kv"
+								value="{oJsonAISSetModel>Z11kv}"
+								editable="{parentModel>/isFieldEditable}"
+								liveChange="onInputValueChange"
+								textAlign="Right"
+							/>
+						</ui:template>
+					</ui:Column>
+					<ui:Column
+						resizable="false"
+						width="8rem"
+						hAlign="Center"
+					>
+						<Text text="{i18n>MainView.Z33kv}"/>
+						<ui:template>
+							<Input
+								id="id_z33kv"
+								value="{oJsonAISSetModel>Z33kv}"
+								editable="{parentModel>/isFieldEditable}"
+								liveChange="onInputValueChange"
+								textAlign="Right"
+							/>
+						</ui:template>
+					</ui:Column>
+					<ui:Column
+						resizable="false"
+						width="7rem"
+						hAlign="Center"
+					>
+						<Text text="{i18n>MainView.InZlv}"/>
+						<ui:template>
+							<Input
+								id="id_zlv"
+								value="{oJsonAISSetModel>Zlv}"
+								editable="{parentModel>/isFieldEditable}"
+								liveChange="onInputValueChange"
+								textAlign="Right"
+							/>
+						</ui:template>
+					</ui:Column>
+					<ui:Column
+						resizable="false"
+						width="7rem"
+						hAlign="Center"
+					>
+						<Text text="{i18n>MainView.CreatedBy}"/>
+						<ui:template>
+							<Input
+								value="{oJsonAISSetModel>CreatedBy}"
+								editable="false"
+								liveChange="onInputValueChange"
+							/>
+						</ui:template>
+					</ui:Column>
+					<ui:Column
+						resizable="false"
+						width="8rem"
+						hAlign="Center"
+					>
+						<Text text="{i18n>MainView.CreatedOn}"/>
+						<ui:template>
+							<DatePicker
+								value="{
+									path: 'oJsonAISSetModel>CreatedOn',
+									formatter: '.formatter.oDateFormat'
+								}"
+								editable="false"
+							/>
+						</ui:template>
+					</ui:Column>
+					<ui:Column
+						resizable="false"
+						width="7rem"
+						hAlign="Center"
+					>
+						<Text text="{i18n>MainView.ChangedBy}"/>
+						<ui:template>
+							<Input
+								value="{oJsonAISSetModel>ChangedBy}"
+								editable="false"
+								liveChange="onInputValueChange"
+							/>
+						</ui:template>
+					</ui:Column>
+					<ui:Column
+						resizable="false"
+						width="10rem"
+						hAlign="Center"
+					>
+						<Text text="{i18n>MainView.ChangedOn}"/>
+						<ui:template>
+							<DatePicker
+								id="DP3"
+								value="{
+									path: 'oJsonAISSetModel>ChangedOn',
+									formatter: '.formatter.oDateFormat'
+								}"
+								editable="false"
+							/>
+						</ui:template>
+					</ui:Column>
+				</ui:columns>
+			</ui:Table>
+		</content>
+		<footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button
+					id="id_update_button"
+					text="Save"
+					type="Accept"
+					class="sapUiSmallMarginEnd"
+					press="createPostRequest"
+				/>
+				<Button
+					text="Cancel"
+					type="Reject"
+					class="sapUiSmallMarginEnd"
+					press="onCancelButtonPress"
+				/>
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>

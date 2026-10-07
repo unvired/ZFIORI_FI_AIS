@@ -1,0 +1,1 @@
+sap.ui.define(["sap/ca/ui/model/format/NumberFormat","sap/ca/ui/model/format/DateFormat"],function(t,a){"use strict";return{oDateFormat:function(t){if(t){var a=sap.ui.core.format.DateFormat.getDateInstance({style:"medium"},sap.ui.getCore().getConfiguration().getLocale());var e=a.format(t);return e}}}});

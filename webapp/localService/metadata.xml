@@ -1,0 +1,44 @@
+<edmx:Edmx
+	xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+	xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema
+			xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZWEL_FIORI_FI_AIS_SRV" xml:lang="en" sap:schema-version="1">
+			<EntityType Name="AIS" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="SubClass"/>
+				</Key>
+				<Property Name="SubClass" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Z Sub Class" sap:sortable="false"/>
+				<Property Name="SubClassDesc" Type="Edm.String" MaxLength="60" sap:unicode="false" sap:label="Sub Class Desc" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="AssetClass" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="Asset Class" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="StdCost" Type="Edm.Decimal" Precision="14" Scale="3" sap:unicode="false" sap:label="Standard Cost" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="StdLife" Type="Edm.Decimal" Precision="5" Scale="2" sap:unicode="false" sap:label="Standard Life" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Z33kv" Type="Edm.Decimal" Precision="5" Scale="2" sap:unicode="false" sap:label="33KV %" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Z11kv" Type="Edm.Decimal" Precision="5" Scale="2" sap:unicode="false" sap:label="11KV %" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Zlv" Type="Edm.Decimal" Precision="5" Scale="2" sap:unicode="false" sap:label="LV %" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="SubclassCat" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Sub Class Category" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="CreatedBy" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="User Name" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="CreatedOn" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Date" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="ChangedBy" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="User Name" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="ChangedOn" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Date" sap:sortable="false" sap:filterable="false"/>
+			</EntityType>
+			<EntityType Name="SubclassHelp" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="SubClass"/>
+				</Key>
+				<Property Name="SubClass" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Z Sub Class" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="SubClassDesc" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:label="Sub Class Desc" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="AssetClass" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Asset Class" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+			</EntityType>
+			<EntityContainer Name="ZWEL_FIORI_FI_AIS_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+				<EntitySet Name="AISSet" EntityType="ZWEL_FIORI_FI_AIS_SRV.AIS" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+				<EntitySet Name="SubclassHelpSet" EntityType="ZWEL_FIORI_FI_AIS_SRV.SubclassHelp" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+			</EntityContainer>
+			<atom:link
+				xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="http://weldev:8000/sap/opu/odata/sap/ZWEL_FIORI_FI_AIS_SRV/$metadata"/>
+				<atom:link
+					xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="http://weldev:8000/sap/opu/odata/sap/ZWEL_FIORI_FI_AIS_SRV/$metadata"/>
+				</Schema>
+			</edmx:DataServices>
+		</edmx:Edmx>

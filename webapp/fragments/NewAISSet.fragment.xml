@@ -1,0 +1,83 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core"
+>
+	<Dialog
+		id="createawlid"
+		contentWidth="30%"
+		title="Create new AIS cost for Asset"
+	>
+		<content>
+			<VBox class="sapUiSmallMargin">
+				<f:Form
+					id="FormToolbar"
+					editable="true"
+				>
+					<f:layout>
+						<f:ResponsiveGridLayout
+							labelSpanXL="3"
+							labelSpanL="3"
+							labelSpanM="3"
+							adjustLabelSpan="false"
+							emptySpanXL="0"
+							emptySpanL="4"
+							columnsXL="2"
+							columnsL="1"
+							singleContainerFullSize="false"
+						/>
+					</f:layout>
+					<f:formContainers>
+						<f:FormContainer>
+							<f:formElements>
+								<f:FormElement label="{i18n>MainView.InSubClass}">
+									<f:fields>
+										<Input
+											value="{newAISJsonModel>/SubClass}"
+											valueState="{newAISJsonModel>/SubClassValueState}"
+											valueStateText="Mandatory"
+											showValueHelp="true"
+											valueHelpOnly="true"
+											valueHelpRequest="onSubClassValueHelpPress"
+										/>
+									</f:fields>
+								</f:FormElement>
+							</f:formElements>
+							<f:formElements>
+								<f:FormElement label="{i18n>MainView.InSubClassDesc}">
+									<f:fields>
+										<Input
+											value="{newAISJsonModel>/SubClassDesc}"
+											enabled="false"
+										/>
+									</f:fields>
+								</f:FormElement>
+							</f:formElements>
+							<f:formElements>
+								<f:FormElement label="{i18n>MainView.InAssetClass}">
+									<f:fields>
+										<Input
+											value="{newAISJsonModel>/AssetClass}"
+											enabled="false"
+										/>
+									</f:fields>
+								</f:FormElement>
+							</f:formElements>
+						</f:FormContainer>
+					</f:formContainers>
+				</f:Form>
+			</VBox>
+		</content>
+		<buttons>
+			<Button
+				type="Emphasized"
+				text="Create"
+				press="onCreateNewAILAssetCost"
+			/>
+			<Button
+				text="Cancel"
+				press="onCloseDialogButtonPress"
+			/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

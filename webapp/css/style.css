@@ -1,0 +1,30 @@
+/* Enter your custom styles here */
+
+/* .sapUiAFLayout {
+  margin-left: 70% !important;
+} */
+
+[data-style-class="primary-color"] {
+  background-color: #91c8f6 !important;
+}
+
+/* [data-style-class="secondary-color"] {
+    background-color: #e7ecf0 !important;
+  } */
+
+/* .sapMSwt {
+  width: 100px !important;
+}
+
+.sapMSwtOn div.sapMSwtHandle {
+  left: 100px !important;
+}
+
+.sapMSwtLabel {
+  width: auto !important;
+  width: 3.8rem !important;
+} */
+
+/* .sapMSwtLabel {
+  text-transform: capitalize !important;
+} */

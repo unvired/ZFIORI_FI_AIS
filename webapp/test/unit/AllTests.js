@@ -1,0 +1,1 @@
+sap.ui.define(["comwel/asset-standard-cost/test/unit/controller/Main.controller"],function(){"use strict"});
